@@ -12,8 +12,8 @@ describe('ex1.ts', () => {
             const input = {
                 moves: {
                     fly: 'bird',
-                    swim: 'fish ',
-                    walk: ['mammal ', 'insect'],
+                    swim: 'fish',
+                    walk: ['mammal', 'insect'],
                 },
                 foods: {
                     herbivorous: ['leaves', 'sap', 'plants', 'fruit', 'milk', 'grass', 'seeds', 'fruit', 'treats', 'algae'],
@@ -25,7 +25,7 @@ describe('ex1.ts', () => {
                         eats: ['leaves', 'sap', 'fruit'],
                         type: 'insect',
                     },
-                    bird: {
+                    raven: {
                         legs: 2,
                         eats: ['seeds', 'worms', 'fruit'],
                         type: 'bird',
@@ -45,7 +45,7 @@ describe('ex1.ts', () => {
                         eats: ['chicken', 'bones', 'treats'],
                         type: 'mammal',
                     },
-                    fish: {
+                    trout: {
                         legs: 0,
                         eats: ['algae', 'plants'],
                         type: 'fish',
@@ -69,11 +69,11 @@ describe('ex1.ts', () => {
                 { name: 'ant', type: 'insect', diet: 'herbivorous', legs: true, travels: 'walk' },
 
                 // ...the others
-                { name: 'bird', type: 'bird', diet: 'carnivorous', legs: true, travels: 'fly' },
+                { name: 'raven', type: 'bird', diet: 'carnivorous', legs: true, travels: 'fly' },
                 { name: 'cat', type: 'mammal', diet: 'carnivorous', legs: true, travels: 'walk' },
                 { name: 'cow', type: 'mammal', diet: 'herbivorous', legs: true, travels: 'walk' },
                 { name: 'dog', type: 'mammal', diet: 'carnivorous', legs: true, travels: 'walk' },
-                { name: 'fish', type: 'fish', diet: 'herbivorous', legs: false, travels: 'swim' },
+                { name: 'trout', type: 'fish', diet: 'herbivorous', legs: false, travels: 'swim' },
             ]);
         });
     });
