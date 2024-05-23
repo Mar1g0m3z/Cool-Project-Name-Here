@@ -75,4 +75,17 @@
 
 export function transform(input: any): any {
 	// write your code here, have fun :)
+	const result: any[] = [];
+	const { moves, foods, animals } = input;
+	const getDiet = (eats: string[]): string => {
+		for (const food of eats) {
+			if (foods.herbivorous.includes(food)) {
+				return 'herbivorous';
+			}
+			if (foods.carnivorous.includes(food)) {
+				return 'carnivorous';
+			}
+		}
+		return 'unknown';
+	};
 }
