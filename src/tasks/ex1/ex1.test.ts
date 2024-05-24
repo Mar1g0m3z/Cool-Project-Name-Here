@@ -2,78 +2,73 @@
 
 'use strict';
 
-import { transform } from './ex1';
+import { add_ages, transform_numbers, transform_names, transform_people } from './ex1';
 
 describe('ex1.ts', () => {
 
-    describe('#transform()', () => {
+    describe('#transform_numbers()', () => {
 
         it('should return the correct output.', () => {
-            const input = {
-                moves: {
-                    fly: 'bird',
-                    swim: 'fish',
-                    walk: ['mammal', 'insect'],
-                },
-                foods: {
-                    herbivorous: ['leaves', 'sap', 'plants', 'fruit', 'milk', 'grass', 'seeds', 'fruit', 'treats', 'algae'],
-                    carnivorous: ['mice', 'chicken', 'fish', 'worms', 'chicken', 'bones'],
-                },
-                animals: {
-                    ant: {
-                        legs: 6,
-                        eats: ['leaves', 'sap', 'fruit'],
-                        type: 'insect',
-                    },
-                    raven: {
-                        legs: 2,
-                        eats: ['seeds', 'worms', 'fruit'],
-                        type: 'bird',
-                    },
-                    cat: {
-                        legs: 4,
-                        eats: ['mice', 'chicken', 'fish', 'milk'],
-                        type: 'mammal',
-                    },
-                    cow: {
-                        legs: 4,
-                        eats: ['grass', 'milk'],
-                        type: 'mammal',
-                    },
-                    dog: {
-                        legs: 4,
-                        eats: ['chicken', 'bones', 'treats'],
-                        type: 'mammal',
-                    },
-                    trout: {
-                        legs: 0,
-                        eats: ['algae', 'plants'],
-                        type: 'fish',
-                    },
-                },
-            };
-            const result = transform(input);
-            expect(result).toEqual([
-                /**
-                 * This animal is declared in the `input.animals.ant` object.
-                 * The `name` property is equal to the key of the object, which is 'ant'.
-                 * The `type` property is equal to the `type` value of the object, which is 'insect'.
-                 * The `diet` property is calculated by using the objects' eats values and the `input.foods` property.
-                 *  - If what it eats is found int he `input.foods.herbivorous` array, then the diet is 'herbivorous'.
-                 *  - However, if what it eats is found in the `input.foods.carnivorous` array, then the diet is 'carnivorous'.
-                 * The `legs` property is determined by the `legs` property of the object, if the number is greater than 0, then it has legs.
-                 * The `travels` property is determined by the `input.moves` property.
-                 *  - The the animals' object `type` value can be used to match the key in the `input.moves` object.
-                 *  - Be aware, that the `input.moves` object has values of different types, so you need to check if the 'type' value matches, or is included in the array.
-                 */
-                { name: 'ant', type: 'insect', diet: 'herbivorous', legs: true, travels: 'walk' },
+            const input: any = [1, 3, 5, 7, 9];
+            const result = transform_numbers(input);
+            expect(result).toEqual([6, 8, 10, 12, 14]);
+        });
+    });
 
-                // ...the others
-                { name: 'raven', type: 'bird', diet: 'carnivorous', legs: true, travels: 'fly' },
-                { name: 'cat', type: 'mammal', diet: 'carnivorous', legs: true, travels: 'walk' },
-                { name: 'cow', type: 'mammal', diet: 'herbivorous', legs: true, travels: 'walk' },
-                { name: 'dog', type: 'mammal', diet: 'carnivorous', legs: true, travels: 'walk' },
-                { name: 'trout', type: 'fish', diet: 'herbivorous', legs: false, travels: 'swim' },
+    describe('#transform_names()', () => {
+
+        it('should return the correct output.', () => {
+            const input: any = [
+                { name: 'John', age: 25 },
+                { name: 'Jane', age: 30 },
+                { name: 'Jim', age: 35 },
+                { name: 'Jill', age: 40 },
+                { name: 'Jack', age: 45 },
+            ];
+            const result = transform_names(input);
+            expect(result).toEqual([
+                'John',
+                'Jane',
+                'Jim',
+                'Jill',
+                'Jack',
+            ]);
+        });
+    });
+
+    describe('#add_ages()', () => {
+
+        it('should return the correct output.', () => {
+            const input: any = [
+                { name: 'John', age: 25 },
+                { name: 'Jane', age: 30 },
+                { name: 'Jim', age: 35 },
+                { name: 'Jill', age: 40 },
+                { name: 'Jack', age: 45 },
+            ];
+            const result = add_ages(input);
+            expect(result).toEqual(175);
+        });
+    });
+
+    describe('#transform_people()', () => {
+
+        it('should return the correct output.', () => {
+            const input: any = [
+                { name: 'John', age: 25 },
+                { name: 'Jane', age: 14 },
+                { name: 'Jim', age: 35 },
+                { name: 'Jill', age: 8 },
+                { name: 'Jack', age: 45 },
+            ];
+            const result = transform_people(input);
+            expect(result).toEqual([
+                { name: 'John', is_adult: true },
+                { name: 'Jane', is_adult: false },
+                { name: 'Jim', is_adult: true },
+                { name: 'Jill', is_adult: false },
+                { name: 'Jack', is_adult: true },
+                127,
             ]);
         });
     });
