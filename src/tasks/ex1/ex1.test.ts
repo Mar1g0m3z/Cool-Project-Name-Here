@@ -9,7 +9,7 @@ describe('ex1.ts', () => {
     describe('#transform_numbers()', () => {
 
         it('should return the correct output.', () => {
-            const input: any = [1, 3, 5, 7, 9];
+            const input = [1, 3, 5, 7, 9];
             const result = transform_numbers(input);
             expect(result).toEqual([6, 8, 10, 12, 14]);
         });
@@ -18,7 +18,7 @@ describe('ex1.ts', () => {
     describe('#transform_names()', () => {
 
         it('should return the correct output.', () => {
-            const input: any = [
+            const input = [
                 { name: 'John', age: 25 },
                 { name: 'Jane', age: 30 },
                 { name: 'Jim', age: 35 },
@@ -39,7 +39,7 @@ describe('ex1.ts', () => {
     describe('#add_ages()', () => {
 
         it('should return the correct output.', () => {
-            const input: any = [
+            const input = [
                 { name: 'John', age: 25 },
                 { name: 'Jane', age: 30 },
                 { name: 'Jim', age: 35 },
@@ -54,7 +54,7 @@ describe('ex1.ts', () => {
     describe('#transform_people()', () => {
 
         it('should return the correct output.', () => {
-            const input: any = [
+            const input = [
                 { name: 'John', age: 25 },
                 { name: 'Jane', age: 14 },
                 { name: 'Jim', age: 35 },
@@ -68,7 +68,6 @@ describe('ex1.ts', () => {
                 { name: 'Jim', is_adult: true },
                 { name: 'Jill', is_adult: false },
                 { name: 'Jack', is_adult: true },
-                127,
             ]);
         });
     });

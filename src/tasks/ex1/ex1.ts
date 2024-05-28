@@ -2,7 +2,7 @@
 
 'use strict';
 
-export function transform_numbers(input: any): any {
+export function transform_numbers(input) {
 	let newArray = []
 	for (let i = 0; i < input.length; i++) {
 		newArray.push(input[i] + 5);
@@ -10,7 +10,7 @@ export function transform_numbers(input: any): any {
 	return newArray;
 };
 
-export function transform_names(input: any): any {
+export function transform_names(input) {
 
 	let newArray = [];
 	for (let i = 0; i < input.length; i++) {
@@ -26,7 +26,7 @@ export function transform_names(input: any): any {
 	return newArray
 }
 
-export function add_ages(input: any): any {
+export function add_ages(input) {
 	let sum = 0
 	for (let object of input) {
 		sum += object.age;
@@ -39,7 +39,7 @@ export function add_ages(input: any): any {
 }
 
 
-export function transform_people(input: any): any {
+export function transform_people(input) {
 	let newArray = [];
 	for (let object of input) {
 		const is_adult = object.age >= 18;
@@ -48,9 +48,6 @@ export function transform_people(input: any): any {
 			is_adult: is_adult,
 		});
 	}
-
-	// add total to array
-	newArray.push(add_ages(input));
 
 	return newArray;
 }
