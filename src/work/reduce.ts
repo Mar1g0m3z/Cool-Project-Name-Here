@@ -49,7 +49,6 @@ const sum = arr.reduce(function (acc, val, index, my_arr) {
 // 3rd - 3 ... function(7, 3, 2, [1, 2, 3, 4]) => 8
 // 4th - 4 ... function(8, 4, 3, [1, 2, 3, 4]) => 9
 
-
 function transform(acc: any, val: any, index: any, my_arr: any) {
 	acc.total += val;
 	return acc;
@@ -57,29 +56,27 @@ function transform(acc: any, val: any, index: any, my_arr: any) {
 
 const sum2 = arr.reduce(transform, { total: 0 });
 
-
 const number_list = [1, 3, 8, 43, 76, 54, 21, 98, 13];
 
 const total = number_list.reduce((acc, value) => {
-	return acc + value
-}, 0)
+	return acc + value;
+}, 0);
 
 const total_even = number_list.reduce((acc, value) => {
 	if (value % 2 === 0) {
-		return acc + value
+		return acc + value;
 	} else {
-		return acc
+		return acc;
 	}
 }, 0);
 
 const total_odd = number_list.reduce((acc, value) => {
 	if (value % 2 !== 0) {
-		return acc + value
+		return acc + value;
 	} else {
-		return acc
+		return acc;
 	}
 }, 0);
-
 
 let t = 0;
 let to = 0;
@@ -95,15 +92,18 @@ for (let i = 0; i < number_list.length; i++) {
 	}
 }
 
-const totals = number_list.reduce((acc, value) => {
-	acc.t += value;
-	if (value % 2 === 0) {
-		acc.te += value;
-	} else {
-		acc.to += value;
-	}
-	return acc;
-}, { t: 0, to: 0, te: 0 });
+const totals = number_list.reduce(
+	(acc, value) => {
+		acc.t += value;
+		if (value % 2 === 0) {
+			acc.te += value;
+		} else {
+			acc.to += value;
+		}
+		return acc;
+	},
+	{ t: 0, to: 0, te: 0 },
+);
 
 console.log(totals);
 
@@ -111,7 +111,6 @@ console.log(totals);
 // 2nd - 3 ... function({ t: 1, to: 1, te: 0 }, 3, 1, [1, 3, 8, 43, 76, 54, 21, 98, 13]) => { t: 4, to: 4, te: 0 }
 // 3rd - 8 ... function({ t: 4, to: 4, te: 0 }, 8, 2, [1, 3, 8, 43, 76, 54, 21, 98, 13]) => { t: 12, to: 4, te: 8 }
 // 4th - 43 ... function({ t: 12, to: 4, te: 8 }, 43, 3, [1, 3, 8, 43, 76, 54, 21, 98, 13]) => { t: 55, to: 47, te: 8 }
-
 
 const odds = [];
 
@@ -162,7 +161,6 @@ const oddys = numz.reduce((acc, value, index, init_array) => {
 // 4th - 4 ... function([1, 3], 4, 3, [1, 2, 3, 4]) => [1, 3]
 // oddys = [1, 3]
 
-
 const input1 = ['A', 'B', 'C']; // ['a', 'b', 'c']
 
 const lower_input1 = input1.map((value, index) => {
@@ -170,10 +168,9 @@ const lower_input1 = input1.map((value, index) => {
 });
 
 const lower_input2 = input1.reduce((acc: string[], value, index) => {
-	acc.push(value.toLowerCase())
+	acc.push(value.toLowerCase());
 	return acc;
 }, []);
-
 
 const names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
 
@@ -183,4 +180,3 @@ names.map((name, index, arr) => {
 	}
 	console.log(' horray');
 });
-
