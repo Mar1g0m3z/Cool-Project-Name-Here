@@ -19,7 +19,11 @@ export function increase_numbers(numbers: number[], amount: number): number[] {
 export function transform_people(
 	people: { name: string; age: number }[],
 ): { name: string; is_adult: boolean }[] {
-	return [];
+	let new_people = [];
+	let map_people = people.map((object) => {
+		new_people.push({ name: object.name, is_adult: object.age >= 18 });
+	});
+	return new_people;
 }
 
 /*
