@@ -21,6 +21,7 @@ export function e(input: any = 1) {
 }
 
 const f = e;
+
 f();
 
 const g = function h() {
