@@ -5,11 +5,31 @@
 /**
  * Q1. 
  * Create an interface for this data structure.
- * - 'locale' should only be 'en', 'fr' or 'es'.
+ * - 'lang' should only be 'en', 'fr' or 'es'.
  * - 'country' should only be 'GB', 'US', 'CA', 'FR' or 'ES'.
  */
 
-const profile = {
+type Lang = 'en' | 'fr' | 'es';
+
+type Country = 'GB' | 'US' | 'CA' | 'FR' | 'ES';
+
+interface Profile {
+    profile_id: string;
+    meta: {
+        created: Date;
+        likes: number;
+    };
+    details: {
+        username: string;
+        email: string;
+    };
+    settings: {
+        lang: Lang;
+        country: Country;
+    };
+};
+
+const profile: Profile = {
     profile_id: '0ecb06fb-ab5c-46e5-8a24-bd4f89e5a1ee',
     meta: {
         created: new Date(),
@@ -35,23 +55,29 @@ const profile = {
  * The function should have an explicit return type.
  */
 
-function q2() {
-
+// function q2(param: <param type>): <return type> {}
+function q2(first: number | string, second: number): number | null {
+    if (typeof first === 'number') {
+        return first * second;
+    } else {
+        return null;
+    }
 }
 
 /*
  * Q3.
- * Fix the tye error by assigning the correct type to 'acc' object.
+ * Fix the type error by assigning the correct type to 'acc' object.
  */
+//  if you need to do a array of object we can do: {}[] 
+type Result = { number: number, fizz: boolean, buzz: boolean, text: string | number }; // change this to the correct type.
 
-type Result = null; // change this to the correct type.
-
-[1, 2, 3, 4, 5, 6, 7, 8, 9].reduce((acc: Result, elem, number) => {
+[1, 2, 3, 4, 5, 6, 7, 8, 9].reduce((acc: Result[], elem, number) => {
     const fizz = number % 3 === 0;
     const buzz = number % 5 === 0;
     if (fizz && buzz) {
-        const text = fizz && buzz ? 'FizzBuzz' : fizz ? 'Fizz' : buzz ? 'Buzz' : number;
-        acc.push({ number, fizz, buzz, text });
+        const text = (fizz && buzz) ? 'FizzBuzz' : fizz ? 'Fizz' : buzz ? 'Buzz' : number;
+        const elem: Result = { number, fizz, buzz, text };
+        acc.push(elem);
     }
     return acc;
 }, []);
