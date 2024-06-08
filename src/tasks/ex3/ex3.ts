@@ -55,7 +55,7 @@ const profile: Profile = {
  * The function should have an explicit return type.
  */
 
-// function q2(param: <param type>): <return type> {}
+// function nameS(param: <param type>): <return type> {}
 function q2(first: number | string, second: number): number | null {
     if (typeof first === 'number') {
         return first * second;
