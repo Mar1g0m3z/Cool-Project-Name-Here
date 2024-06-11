@@ -1,23 +1,81 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Astroid Game</title>
+        <style>
+            #drawing-1 {
+                cursor: crosshair;
+            }
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Astroid Game</title>
-  <style>
-    canvas {
-      border: 1px solid black;
-    }
-  </style>
-</head>
+            #drawing-2:hover {
+                cursor: url('/image.png') 2 2, auto !important;
+            }
 
-<body>
-  <h1>Hello World</h1>
-  <canvas id="white-board" width="150" height="150">
+            .drawing {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="drawing-1" class="drawing" width="500" height="500"></canvas>
+        <canvas id="drawing-2" class="drawing" width="500" height="500"></canvas>
+        <script>
+            const canvas_1 = document.getElementById("drawing-1");
+            const canvas_2 = document.getElementById("drawing-2");
+            const context_1 = canvas_1.getContext("2d");
+            const context_2 = canvas_2.getContext("2d");
 
-  </canvas>
-</body>
+            canvas_1.addEventListener("mousemove", (evt) => {
+                context_1.beginPath();
+                context_1.arc(evt.offsetX, evt.offsetY, 2, 0, 2 * Math.PI);
+                context_1.stroke();
+            });
 
+            context_1.fillStyle = "yellow";
+            context_1.fillRect(0, 0, 10, 10);
+
+            context_1.fillStyle = "red";
+            context_1.fillRect(50, 0, 10, 10);
+
+            // draw a basic polygon with default fill
+            context_1.beginPath();
+            context_1.moveTo(100, 100);
+            context_1.lineTo(200, 100);
+            context_1.lineTo(150, 200);
+            context_1.closePath();
+            context_1.fill();
+            
+            function draw_polygon(ctx) {
+
+                // draw polygon with custom fill and stroke
+                ctx.beginPath();
+                ctx.moveTo(500, 100);
+                ctx.lineTo(700, 100);
+                ctx.lineTo(650, 200);
+                ctx.lineTo(450, 200);
+                ctx.lineTo(350, 150);
+                ctx.closePath();
+
+                ctx.fillStyle = "orange";
+                ctx.fill();
+
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = 'blue';
+                ctx.stroke();
+            }
+
+            draw_polygon(context_1);
+            draw_polygon(context_2);
+
+            // draw image
+            const image = new Image();
+            image.src = "/flag.png";
+            image.onload = () => {
+                context_1.drawImage(image, 0, 0, 1200, 740, 50, 50, 300, 185);
+            }
+        </script>
+    </body>
 </html>
