@@ -1,27 +1,29 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Astroid Game</title>
-        <style>
-            #drawing-1 {
-                cursor: crosshair;
-            }
 
-            #drawing-2:hover {
-                cursor: url('/image.png') 2 2, auto !important;
-            }
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astroid Game</title>
+  <style>
+    #drawing-1 {
+      cursor: crosshair;
+    }
 
-            .drawing {
-                border: 1px solid black;
-            }
-        </style>
-    </head>
-    <body>
-        <canvas id="drawing-1" class="drawing" width="500" height="500"></canvas>
-        <canvas id="drawing-2" class="drawing" width="500" height="500"></canvas>
+    #drawing-2:hover {
+      cursor: url('/image.png') 2 2, auto !important;
+    }
+
+    .drawing {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="drawing-1" class="drawing" width="500" height="500"></canvas>
+  <!-- <canvas id="drawing-2" class="drawing" width="500" height="500"></canvas>
         <script>
             const canvas_1 = document.getElementById("drawing-1");
             const canvas_2 = document.getElementById("drawing-2");
@@ -74,8 +76,9 @@
             const image = new Image();
             image.src = "/flag.png";
             image.onload = () => {
-                context_1.drawImage(image, 0, 0, 1200, 740, 50, 50, 300, 185);
-            }
-        </script>
-    </body>
+                context_1.drawImage(image, 0, 0, 1200, 740, 50, 50, 300, 185); -->
+  }
+  </script>
+</body>
+
 </html>
